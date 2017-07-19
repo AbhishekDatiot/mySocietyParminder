@@ -1,0 +1,26 @@
+<ion-view view-title="Login" hide-nav-bar="true" class="login-bg">
+  <ion-content class="login-bg">
+    <div class="login-content">
+
+          <form name="login_form" class="form-container" novalidate>
+            <div class="input-list list list-inset">
+              <label class="item item-input">
+                <input type="text" placeholder="Mobile" name="mobile" ng-model="vm.mobile" required>
+              </label>
+              <label class="item item-input" show-hide-container>
+                <input type="password" placeholder="password" name="password" ng-model="vm.password" required show-hide-input>
+              </label>
+            </div>
+            <p ng-show="error" class="message error">{{vm.error}}</p>
+            <button type="submit" class="button button-royal button-block" ng-click="vm.signin()" ng-disabled="login_form.$invalid">
+              Log in
+            </button>
+          </form>
+      <br /><br />
+          <div class="alternative-actions text-center">
+            <a class="action-link button button-clear" ui-sref="forgot"><strong>Forgot Password?</strong></a>
+          </div>
+
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,61 @@
+<ion-view view-title="Complaint" cache-view="false">
+
+    <div class="spinner" ng-show="vm.progress">
+        <ion-spinner icon="dots" class="spinner-dark"></ion-spinner>
+    </div>
+
+    <div class="row item-button-group fixed-header" ng-show="!vm.progress">
+        <div class="col button button-light" ui-sref="app.newComplaint">
+            <i class="text-2x ion-plus"></i>
+            <span class="text-md">New Complaint</span>
+        </div>
+        <div class="col button button-light" ng-click="vm.filterComplaintList()">
+            <i class="text-2x ion-levels"></i>
+            <span class="text-md">Filter</span>
+        </div>
+    </div>
+
+    <ion-content class="stable-bg ion-content-below-fixed-header" ng-show="!vm.progress" overflow-scroll="true">
+
+        <div class="card" ng-if="vm.complaintList.length == 0 || vm.complaintList == undefined">
+
+            <div class="row">
+                <div class="col col-33"></div>
+                <div class="col col-center">
+                <strong class="assertive">No complaints</strong>
+                </div>
+                <div class="col col-33"></div>
+            </div>
+
+        </div>
+
+        <div class="card login-container" ng-repeat="obj in vm.complaintList">
+            <div class="list padding" data-tap-disabled="true">
+
+                <h5> Complaint Type: {{obj.complaintType}}</h5>
+                <h5> Status: <span class="label panel-green" style="font-size: small">{{obj.status}}</span></h5>
+                <h5>Created On: {{obj.createdOn | date:'dd-MM-yyyy'}}</h5>
+                <h5> Resolved On: {{obj.resolvedOn | date:'dd-MM-yyyy'}}</h5>
+                <p> <b>Description:</b> {{obj.description}}</p>
+
+
+                <button type="submit" class="button button-royal button-block"  ui-sref="app.editComplaint({id : obj.complaintId})">
+                    Edit
+                </button>
+            </div>
+        </div>
+
+    </ion-content>
+    <ion-footer-bar>
+        <div class="row item-button-group">
+            <div class="col button" ng-style="vm.isActiveSelected ? {'background-color': 'silver'}: {}" ng-click="vm.changeView('Active')">
+                <i class="text-2x ion-wrench"></i>
+                <span class="text-md">Active Complaints</span>
+            </div>
+            <div class="col button" ng-style="vm.isResolvedSelected ? {'background-color': 'silver'}: {}" ng-click="vm.changeView('Resolved')">
+                <i class="text-2x ion-ios-checkmark-outline"></i>
+                <span class="text-md">Resolved Complaints</span>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

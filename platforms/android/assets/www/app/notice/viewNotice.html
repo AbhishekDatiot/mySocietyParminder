@@ -1,0 +1,33 @@
+<ion-view class="post-view">
+    <div class="spinner" ng-show="vm.progress">
+        <ion-spinner icon="dots" class="spinner-dark"></ion-spinner>
+    </div>
+    <ion-content ng-show="!vm.progress">
+        <div class="post-heading item item-text-wrap" style="text-align: center">
+            <h1 class="post-title">{{vm.post.subject}}</h1>
+            <p class="post-author">
+                <span>{{vm.post.startDate | date:'EEE  dd MMM'}}</span>
+            </p>
+        </div>
+        <div class="post-content item item-text-wrap" post-content style="background-color: lightgrey">
+            <p class="post-text" dynamic-anchor-fix ng-bind-html="vm.post.description"></p>
+        </div>
+        <div class="post-tags item item-text-wrap">
+            <div ng-repeat="url in vm.post.attachmentUrl">
+                <div ng-if="url.split('.').pop() == 'jpg' || url.split('.').pop() == 'jpeg' || url.split('.').pop() == 'png' ||
+                            url.split('.').pop() == 'bmp' || url.split('.').pop() == 'gif' || url.split('.').pop() == 'tiff'">
+                    <img ng-src="{{url}}" width="100%" height="300px">
+                </div>
+                <br />
+                <div ng-if="url.split('.').pop() != 'jpeg' || url.split('.').pop() == 'jpg' || url.split('.').pop() == 'png' ||
+                    url.split('.').pop() == 'bmp' || url.split('.').pop() == 'gif' || url.split('.').pop() == 'tiff'">
+                    <strong ng-if="url == vm.post.attachmentUrl[0]">Download Attachment</strong>
+                    <br /><br />
+                    <span>
+                    <a>{{url.split('/').pop()}} <i class="pull-right text-2x ion-android-download"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

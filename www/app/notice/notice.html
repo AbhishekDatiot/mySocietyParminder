@@ -1,0 +1,59 @@
+<ion-view view-title="Notice" cache-view="false">
+
+    <div class="spinner" ng-show="vm.progress">
+        <ion-spinner icon="dots" class="spinner-dark"></ion-spinner>
+    </div>
+
+    <div class="list fixed-header">
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Notice Type
+            </div>
+            <select name="noticeType" ng-model="vm.noticeType"
+                    ng-change="vm.populateNoticeList()" ng-options="notice for notice in vm.noticeTypeList"
+                    required>
+            </select>
+        </label>
+    </div>
+
+    <ion-content class="stable-bg ion-content-below-fixed-header" ng-show="!vm.progress" overflow-scroll="true">
+
+        <div class="card" ng-if="vm.noticeList.length == 0 || vm.noticeList == undefined">
+
+            <div class="row">
+                <div class="col col-25"></div>
+                <div class="col col-center">
+                    <strong class="assertive">Notice Board Empty</strong>
+                </div>
+                <div class="col col-25"></div>
+            </div>
+
+        </div>
+
+        <div class="posts-list">
+            <div ng-repeat="notice in vm.noticeList" class="list card post-item">
+                <div class="post-heading item item-text-wrap" style="background-color: lightgrey">
+                    <h2 class="post-title" ng-bind-html="notice.startDate | date:'EEEE'"></h2>
+                    <p class="post-author">
+                        <span class="text-white">{{notice.startDate | date:'dd MMM'}}</span>
+                    </p>
+                </div>
+                <div class="post-content item item-text-wrap" post-content>
+                    <strong>{{notice.subject}}</strong>
+                    <p class="post-excerpt" dynamic-anchor-fix ng-bind-html="notice.description"></p>
+                    <div class="post-actions row">
+                        <div class="actions col col-center col-66">
+                            <!--<a class="button button-icon icon ion-bookmark" ng-click="bookmarkPost(post)"></a>-->
+                        </div>
+                        <div class="read-more col col-center col-33">
+                            <a ui-sref="app.readNotice({notice: notice})" class="button button-small button-block button-assertive">
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

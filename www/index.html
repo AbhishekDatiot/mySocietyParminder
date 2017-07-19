@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy">
+    <title></title>
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- bower dependencies .css -->
+    <link href="lib/angular-toastr/dist/angular-toastr.css" rel="stylesheet">
+
+    <!-- jquerry -->
+    <script src="lib/jquery/dist/jquery.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- angular-nl2br js -->
+    <script src="lib/angular-nl2br/angular-nl2br.min.js"></script>
+
+    <!-- elastic js-->
+    <script src="lib/angular-elastic/elastic.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova-mocks.js"></script>
+
+    <!-- google maps javascript -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&amp;sensor=true"></script>
+
+
+
+
+    <script src="env.js"></script>
+
+
+    <!-- bower dependencies .js -->
+    <script src="lib/angular-toastr/dist/angular-toastr.js"></script>
+    <script src="lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    <script src="lib/ngstorage/ngStorage.js"></script>
+
+
+    <!-- your app's js -->
+    <script src="app/app.js"></script>
+    <script src="app/auth/auth.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/router/router.module.js"></script>
+    <script src="app/logger/logger.module.js"></script>
+    <script src="app/layout/layout.module.js"></script>
+    <script src="app/notice/notice.module.js"></script>
+    <script src="app/support/support.module.js"></script>
+    <script src="app/user/user.module.js"></script>
+    <script src="app/complaint/complaint.module.js"></script>
+
+    <script src="app/core/constants.js"></script>
+    <script src="app/core/password.directive.js"></script>
+    <script src="app/router/router-helper.provider.js"></script>
+    <script src="app/logger/logger.js"></script>
+
+    <script src="app/auth/auth.route.js"></script>
+    <script src="app/notice/notice.route.js"></script>
+    <script src="app/support/support.route.js"></script>
+    <script src="app/user/user.route.js"></script>
+    <script src="app/complaint/complaint.route.js"></script>
+
+    <script src="app/auth/init.controller.js"></script>
+    <script src="app/auth/signin.controller.js"></script>
+    <script src="app/auth/signout.controller.js"></script>
+    <script src="app/layout/sidemenu.controller.js"></script>
+    <script src="app/notice/notice.controller.js"></script>
+    <script src="app/notice/noticeView.controller.js"></script>
+    <script src="app/user/userProfile.controller.js"></script>
+    <script src="app/complaint/complaintList.controller.js"></script>
+    <script src="app/complaint/complaintNew.controller.js"></script>
+    <script src="app/complaint/complaintEdit.controller.js"></script>
+    <script src="app/auth/forgotPassword.controller.js"></script>
+
+
+    <script src="app/auth/principal.service.js"></script>
+    <script src="app/auth/validationHelperFactory.js"></script>
+    <script src="app/notice/notice.service.js"></script>
+    <script src="app/complaint/complaint.service.js"></script>
+    <script src="app/user/user.service.js"></script>
+    <script src="app/auth/forgot.service.js"></script>
+
+
+    <script src="app/core/compare-to.js"></script>
+    <script src="app/core/connectivitymonitor.service.js"></script>
+
+  </head>
+  <body ng-app="app">
+
+      <ion-nav-view></ion-nav-view>
+
+  </body>
+</html>

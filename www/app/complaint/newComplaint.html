@@ -1,0 +1,47 @@
+<ion-view view-title="New Complaint">
+
+    <div class="spinner" ng-show="vm.progress">
+        <ion-spinner icon="dots" class="spinner-dark"></ion-spinner>
+    </div>
+
+
+    <ion-content class="stable-bg" ng-show="!vm.progress">
+        <div class="row">
+            <div class="col col-center">
+                <div class="card login-container">
+                    <ng-form name="vm.Form" role="Form" id="Form" novalidate>
+                    <div class="list padding" data-tap-disabled="true">
+
+                    <label class="item item-input item-select">
+                    <div class="input-label" name="complaintType" style="font-style: italic">
+                        <strong>Complaint Type</strong>
+                    </div>
+                    <select  ng-model="vm.complaintType" ng-options="obj for obj in vm.complaintTypeList">
+                    </select>
+                </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label" style="font-style: italic"><strong>Complaint Description</strong></span>
+                            <textarea style="height: 100px" placeholder="type here" ng-model="vm.description">
+                                </textarea>
+                        </label>
+
+                        <!--<label class="item item-input item-select">-->
+                            <!--<div class="input-label" name="assignTo">-->
+                                <!--Assigned To-->
+                            <!--</div>-->
+                            <!--<select  ng-model="vm.assignTo" ng-options="obj.name for obj in vm.assignto">-->
+                            <!--</select>-->
+                        <!--</label>-->
+            </div>
+            <div class="item item-body bottom-content">
+                <button type="submit" class="button button-balanced button-block" ng-click="vm.submit()" ng-disabled="vm.Form.$invalid" >
+                    Submit
+                </button>
+                <button  ng-click="vm.onCancel()" class="button button-assertive button-block"> Cancel </button>
+            </div>
+</ng-form>
+        </div>
+                </div>
+                </div>
+    </ion-content>
+</ion-view>

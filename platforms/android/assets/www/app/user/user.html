@@ -1,0 +1,112 @@
+<ion-view view-title="Account" cache-view="false">
+
+    <div class="spinner" ng-show="vm.progress">
+        <ion-spinner icon="dots" class="spinner-dark"></ion-spinner>
+    </div>
+
+        <ion-content ng-show=" !vm.progress">
+
+            <div class="row item-button-group">
+                <div class="col button" ng-style="vm.isProfileSelected ? {'background-color': 'silver'}: {}" ng-click="vm.changeView('Profile')">
+                    <i class="text-2x ion-person"></i>
+                    <span class="text-md">My Profile</span>
+                </div>
+                <div class="col button" ng-style="vm.isChangePasswordSelected ? {'background-color': 'silver'}: {}" ng-click="vm.changeView('Password')">
+                    <i class="text-2x ion-key"></i>
+                    <span class="text-md">Change Password</span>
+                </div>
+            </div>
+
+            <div class="spinner" ng-show="vm.progressInnerView">
+                <ion-spinner icon="android"></ion-spinner>
+            </div>
+
+            <div ng-if="vm.isProfileSelected" ng-show="!vm.progressInnerView">
+                <ng-form name="vm.profileForm" role="profileForm" id="profileForm" novalidate>
+                    <div class="list">
+                        <label class="item item-input item-stacked-label" ng-class="{'has-error':vm.profileForm.name.$dirty && vm.profileForm.name.$invalid, 'no-errors':vm.profileForm.name.$valid}">
+                            <span class="input-label">Name</span>
+                            <input type="text" placeholder="name" ng-model="vm.user.name" name="name" required>
+                        </label>
+
+                        <div class="error-container" ng-show="vm.profileForm.name.$dirty && vm.profileForm.name.$error"
+                             ng-messages="vm.profileForm.name.$error" ng-messages-include="app/layout/error-messages.html">
+                        </div>
+
+
+                        <label class="item item-input item-stacked-label" ng-class="{'has-error':vm.profileForm.email.$dirty && vm.profileForm.email.$invalid, 'no-errors':vm.profileForm.email.$valid}">
+                            <span class="input-label">Email</span>
+                            <input type="email" placeholder="email" ng-model="vm.user.email" name="email" required>
+                        </label>
+
+                        <div class="error-container" ng-show="vm.profileForm.email.$dirty && vm.profileForm.email.$error"
+                             ng-messages="vm.profileForm.email.$error" ng-messages-include="app/layout/error-messages.html">
+                        </div>
+
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Mobile Number</span>
+                            <input type="text" placeholder="number" ng-model="vm.user.mobile" ng-readonly="true">
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Address</span>
+                            <input type="text" placeholder="address" ng-model="vm.user.address" ng-readonly="true">
+                        </label>
+                    </div>
+                    <div class="item item-body bottom-content">
+                        <button type="submit" class="button button-balanced button-block" ng-click="vm.submitProfile()" ng-disabled="vm.Form.$invalid" >
+                            Submit
+                        </button>
+                    </div>
+                </ng-form>
+            </div>
+
+            <div ng-if="vm.isChangePasswordSelected" ng-show="!vm.progressInnerView">
+                <div class="card login-container">
+                    <ng-form name="vm.Form" role="Form" id="Form" novalidate>
+
+                        <div class="list padding">
+                            <label class="item item-input" show-hide-container ng-class="{'has-error':vm.Form.currentPassword.$dirty && vm.Form.currentPassword.$invalid, 'no-errors':vm.Form.currentPassword.$valid}">
+                                <input type="password"  placeholder="Enter your Password"
+                                       name="currentPassword" ng-model="vm.currentPassword" ng-minlength=6 required  show-hide-input>
+                            </label>
+
+                            <div class="error-container" ng-show="vm.Form.currentPassword.$dirty && vm.Form.currentPassword.$error"
+                                 ng-messages="vm.Form.currentPassword.$error" ng-messages-include="app/layout/error-messages.html">
+                            </div>
+
+                            <label class="item item-input" show-hide-container ng-class="{'has-error':vm.Form.newPassword.$dirty && vm.Form.newPassword.$invalid, 'no-errors':vm.Form.newPassword.$valid}">
+                                <input type="password"   placeholder="Enter a new Password"
+                                       name="newPassword" ng-model="vm.newPassword" ng-minlength=6 required show-hide-input custom-validate validate-field="vm.currentPassword">
+                            </label>
+
+                            <div class="error-container" ng-show="vm.Form.newPassword.$dirty && vm.Form.newPassword.$error"
+                                 ng-messages="vm.Form.newPassword.$error" ng-messages-include="app/layout/error-messages.html">
+                                <div class="error" ng-message="passwordValidator">
+                                    <i class="ion-information-circled"></i>
+                                    New Password cannot be same as Old Password!
+                                </div>
+                            </div>
+
+                            <label class="item item-input" show-hide-container ng-class="{'has-error':vm.Form.password2.$dirty && vm.Form.password2.$invalid, 'no-errors':vm.Form.password2.$valid}">
+                                <input type="password" placeholder="Repeat Password"
+                                       name="password2" ng-model="vm.password2" compare-to="vm.newPassword" required show-hide-input>
+                            </label>
+
+                            <div class="error-container" ng-show="vm.Form.password2.$dirty && vm.Form.password2.$error"
+                                 ng-messages="vm.Form.password2.$error" ng-messages-include="app/layout/error-messages.html">
+                            </div>
+
+                            <input type="hidden"  name="key" ng-model="vm.key"/>
+                        </div>
+
+                        <div class="item item-body bottom-content">
+                            <button type="submit" class="button button-balanced button-block" ng-click="vm.submitPassword()" ng-disabled="vm.Form.$invalid" >
+                                Change  Password
+                            </button>
+                        </div>
+                    </ng-form>
+                </div>
+            </div>
+
+        </ion-content>
+</ion-view>

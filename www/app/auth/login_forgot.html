@@ -1,0 +1,41 @@
+<ion-view view-title="Login" hide-nav-bar="true" class="login-bg">
+  <ion-content class="login-bg">
+    <div class="login-content">
+
+      <!-- Login form -->
+      <div class="row">
+        <div class="col col-center">
+          <div class="card login-container">
+            <form name="vm.forgot_password_form" role="form" id="form" novalidate>
+              <!-- <my-tabs>
+              <my-tab title="Forgot Password"> -->
+              <div class="item item-body">
+
+                <label class="item item-input" ng-class="{ 'has-errors' : vm.forgot_password_form.number.$dirty && vm.forgot_password_form.number.$invalid,
+          'no-errors' : vm.forgot_password_form.number.$dirty && vm.forgot_password_form.number.$valid}">
+                  <input type="text" placeholder="Phone Number" name="number" ng-model="vm.phoneNumber"  minlength="10" maxlength="10" required>
+                </label>
+
+                <div class="error-container" ng-show="vm.forgot_password_form.number.$dirty && vm.forgot_password_form.number.$error"
+                     ng-messages="vm.forgot_password_form.number.$error" ng-messages-include="app/layout/error-messages.html">
+                </div>
+
+              </div>
+              <!-- </my-tab>
+              </my-tabs> -->
+              <div class="item item-body bottom-content">
+                <button type="submit" class="button button-royal button-block" ng-click="vm.submit()" ng-disabled="vm.forgot_password_form.$invalid">
+                  Recover it
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="alternative-actions text-center">
+            <a class="action-link button button-clear" ui-sref="login"><strong>Log In</strong></a>
+            <!--<a class="action-link button button-small button-clear" ui-sref="intro.auth-signup()">Sign up</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

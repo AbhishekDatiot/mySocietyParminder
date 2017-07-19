@@ -1,0 +1,7 @@
+<!--
+  This template is for entering quantity of item
+-->
+<!--<input type="number" ng-model="data.quantity"/>-->
+<ion-list ng-model="choice">
+        <ion-radio ng-repeat="row in complaintList" ng-model="vm.selectedFilter" ng-value="row">{{row}}</ion-radio>
+</ion-list>

@@ -1,0 +1,29 @@
+/* Empty. Add your own CSS if you like */
+
+
+/* ion spinner css */
+
+div.spinner {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    height: 65px;
+    text-align: center;
+}
+.spinner svg {
+    width: 15% !important;
+    height: 65px !important;
+}
+
+.fixed-header{
+    margin-top:43px;
+    position:absolute;
+    /*
+     The ionic header bar is 43px in height,
+     put your content below the header bar.
+    */
+}
+
+.ion-content-below-fixed-header{
+    margin-top:43px!important;
+}

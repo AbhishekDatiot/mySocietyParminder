@@ -1,1 +1,1 @@
-# mySocietyParminder
+"# smsMobile" 
